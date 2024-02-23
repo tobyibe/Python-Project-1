@@ -20,6 +20,3 @@ class IntricateInteger:
         if ( self.mod != other.mod or self.mul != other.mul):
             raise ArithmeticError("The two intricate integers must have the same modulus and multiplier")
         return IntricateInteger((self.object + other.object + self.mul*(math.lcm(self.object, other.object)))%self.mod, self.mod, self.mul)
-
-a = IntricateInteger(3,5,4)
-b = IntricateInteger(2,5,4)
