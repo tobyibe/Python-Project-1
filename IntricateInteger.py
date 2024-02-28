@@ -25,5 +25,20 @@ class IntricateInteger:
             raise ArithmeticError("The two intricate integers must have the same modulus and multiplier")
         return IntricateInteger((self.object + other.object + self.mul * (math.lcm(self.object, other.object))) % self.mod, self.mod, self.mul)
 
+    # define function to return size of the set Zn
+    def size(self):
+        return self.mod
 
+    # implemented functions to allow the iteration of IntricateInteger objects
+    def __iter__(self):
+        self.object = 0
+        return self
 
+    # iterates until the object count is smaller than the mod count
+    def __next__(self):
+        if self.object < self.mod:
+            result = IntricateInteger(self.object, self.mod, self.mul)
+            self.object += 1
+            return result
+        else:
+            raise StopIteration

@@ -1,5 +1,8 @@
 import unittest
-from IntricateInteger import IntricateInteger, has_intricate_peculiar_property, has_commutative_intricate_multiplication
+from IntricateInteger import IntricateInteger
+from CommutativeIntricateMultiplication import has_commutative_intricate_multiplication
+from IntricatePeculiarProperty import has_intricate_peculiar_property
+from AssociativeIntricateMultiplication import has_associative_intricate_multiplication
 
 class TestIntricateInteger(unittest.TestCase):
     def test_initialization(self):
@@ -59,6 +62,15 @@ class TestIntricateInteger(unittest.TestCase):
                 with self.subTest(n=n, alpha=alpha):
                     self.assertTrue(has_commutative_intricate_multiplication(n, alpha),
                                     f"Multiplication not commutative for n={n}, alpha={alpha}")
+
+    def test_associativity(self):
+        """Test if the multiplication operation is associative for specific n and alpha values that follow a pattern discovered in my results."""
+        for n in range(1, 21):  # Test a range of n values as requested in specification
+            for alpha in range(n):  # Test all alpha values within each n
+                with self.subTest(n=n, alpha=alpha):
+                    if (n%2==0 and alpha==n/2) or alpha==0: #This if statement and the results verify my conjucture written within the AssociativeIntricateMultiplication file
+                            self.assertTrue(has_associative_intricate_multiplication(n, alpha),
+                                    f"Multiplication not associative for n={n}, alpha={alpha}")
 
 if __name__ == '__main__':
     unittest.main()
