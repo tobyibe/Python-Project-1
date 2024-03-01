@@ -7,8 +7,7 @@ def has_intricate_peculiar_property(mod,mul):
         a = x*x
         if (a.object != x.object or a.mod != x.mod or a.mul != x.mul):
             flag = False
-        else:
-            print(x, a)
+
     return flag
 
 def test_intricate_peculiar_property_to_50():

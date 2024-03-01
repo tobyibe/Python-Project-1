@@ -42,3 +42,5 @@ class IntricateInteger:
             return result
         else:
             raise StopIteration
+for x in IntricateInteger(1,3,2):
+    print(x)
