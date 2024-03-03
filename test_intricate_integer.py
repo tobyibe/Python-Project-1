@@ -1,5 +1,6 @@
 import unittest
 from IntricateInteger import IntricateInteger
+from IntricateIntegers import IntricateIntegers
 from CommutativeIntricateMultiplication import has_commutative_intricate_multiplication
 from IntricatePeculiarProperty import has_intricate_peculiar_property
 from AssociativeIntricateMultiplication import has_associative_intricate_multiplication
@@ -71,6 +72,14 @@ class TestIntricateInteger(unittest.TestCase):
                     if (n%2==0 and alpha==n/2) or alpha==0: #This if statement and the results verify my conjucture written within the AssociativeIntricateMultiplication file
                             self.assertTrue(has_associative_intricate_multiplication(n, alpha),
                                     f"Multiplication not associative for n={n}, alpha={alpha}")
+    
+    def test_iteration(self):
+        """Test the iteration of IntricateIntegers objects."""
+        counter=0 # Use a counter to keep count of value in Zn set
+        for x in IntricateIntegers(3,2): # Testing for loop interation over an instance of IntricateIntegers
+           self.assertEqual(x, f"<{counter} mod 3 | 2>")
+           counter+=1
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -20,5 +20,23 @@ class IntricateIntegers:
         output+="\b]>"
         return output
 
-x = IntricateIntegers(3,2)
-print(x)
+    # implemented functions to allow the iteration of IntricateInteger objects
+    def __iter__(self):
+        self.object = 0
+        return self
+
+    # iterates until the object count is smaller than the mod count
+    def __next__(self):
+        if self.object < self.mod:
+            self.object += 1
+            return f"<{self.object-1} mod {self.mod} | {self.mul}>"
+        else:
+            raise StopIteration
+
+#Code for testing IntricateIntegers use
+
+#for x in IntricateIntegers(3,2):
+#   print(x)
+
+#x = IntricateIntegers(3,2)
+#print(x)
