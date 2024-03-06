@@ -17,7 +17,7 @@ class IntricateIntegers:
         output = "<["
         for i in range(self.size()):
             output+= str(i)+","
-        output+="\b]>"
+        output+="\b] mod "+str(self.mod)+" | "+str(self.mul)+" >"
         return output
 
     # implemented functions to allow the iteration of IntricateInteger objects
@@ -32,7 +32,7 @@ class IntricateIntegers:
             return f"<{self.object-1} mod {self.mod} | {self.mul}>"
         else:
             raise StopIteration
-
+            
 #Code for testing IntricateIntegers use
 
 #for x in IntricateIntegers(3,2):
